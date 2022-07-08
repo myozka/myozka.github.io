@@ -1,0 +1,22 @@
+---
+layout: default
+---
+{% for section in page.sections %}
+<section>
+    <div class="hgroup{% if section.type == "first" %} hfirst{% endif %}" id="{{ section.title }}">
+        {% if section.type == "first" %}
+        <h1>{{ section.title }}</h1>
+        {% else %}
+        <h2>{{ section.title }}</h2>
+        {% endif %}
+    </div>
+    <div class="content {% if section.type == "first" %}content1{% else %}content2{% endif %}">
+        {% if section.style == "html" %}
+        {{ section.content | liquify | textify }}
+        {% else %}
+        {{ section.content | liquify | markdownify }}
+        {% endif %}
+    </div>
+</section>
+{% endfor %}
+{{ content }}

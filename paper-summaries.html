@@ -1,0 +1,28 @@
+---
+layout: sectioned
+title: Paper Summaries Challenge
+sections:
+- title: overview
+  type: first
+  content: |
+
+    This site contains short overviews of papers.  The opinions expressed
+    on this page are mine alone, and I will be happy to be corrected about
+    any misunderstandings.
+
+---
+<section>
+    <div class="hgroup" id="papers">
+        <h2>papers</h2>
+    </div>
+    <div class="content content2">
+        <p>
+        Following are the papers:
+        <ul>
+            {% for post in site.posts %}
+            <li><a href="{{ post.url }}">{{ post.date | date_to_string }} &ndash; {{ post.title }}</a></li>
+            {% endfor %}
+        </ul>
+        </p>
+    </div>
+</section>

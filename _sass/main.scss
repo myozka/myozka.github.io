@@ -1,0 +1,269 @@
+/*                                                                      */
+/* Many of the color choices were taken from oli.jp                     */
+/*                                                                      */
+/* This file is placed under a Creative Commons Attribution             */
+/* Share-alike license                                                  */
+/*                                                                      */
+/* Copyright (c) Kasimir Gabert, 2010-2022                              */
+/*                                                                      */
+/* This work is licensed under the Creative Commons                     */
+/* Attribution-ShareAlike 3.0 Unported License. To view a copy of this  */
+/* license, visit http://creativecommons.org/licenses/by-sa/3.0/ or     */
+/* send a letter to Creative Commons, 171 Second Street, Suite 300,     */
+/* San Francisco, California, 94105, USA.                               */
+/*                                                                      */
+
+/* Register fonts */
+@font-face {
+    font-family: 'Raleway';
+    src: url('/assets/fonts/Raleway-Regular.ttf');
+}
+@font-face {
+    font-family: 'Raleway';
+    src: url('/assets/fonts/Raleway-Bold.ttf');
+    font-weight: bold;
+}
+@font-face {
+    font-family: 'Raleway';
+    src: url('/assets/fonts/Raleway-Italic.ttf');
+    font-style: italic;
+}
+@font-face {
+    font-family: 'MuseoSlab';
+    src: url('/assets/fonts/Museo_Slab_500_2-webfont.woff') format('woff');
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    color: #111;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+    background: #e1e1e1;
+}
+
+/* We want to restrict the body size to 1100px */
+div.all {
+    max-width: 1100px;
+    padding-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    background: #f9f9f9;
+}
+
+/* Then, setup headers */
+h1, h2, nav {
+    font-family: 'MuseoSlab';
+    font-style: normal;
+    font-weight: normal;
+    color: #000;
+}
+
+/* Sections need to have bars on their left sides */
+div.container {
+    padding: 0 4em 1em 14em;
+}
+section, div.space, nav#inner {
+    border-left: 1px solid #aaa;
+    padding: .3em .3em 1em 1em;
+}
+@media only screen and (max-width: 767px) {
+    div.container {
+        padding: 0 1em 0 1em;
+    }
+    section, div.space, nav#inner {
+        padding: 0em;
+    }
+    .content {
+        padding: 1em;
+    }
+}
+
+/* We want a bar to go across the screen above the sections */
+div.bar {
+    margin: 0;
+    width: 100%;
+}
+div.bar div {
+    margin: 0 5em 0 5em;
+    height: 1px;
+    background-color: #aaa;
+}
+@media only screen and (max-width: 767px) {
+    div.bar div {
+        margin: 0;
+    }
+}
+
+/* We want to put h1 on the other side of the section bar */
+h1, h2 {
+    margin: 0;
+}
+h1 {
+    font-size: 1.4em;
+}
+h2 {
+    font-size: 1.1em;
+}
+section div.hgroup {
+    position: relative;
+    left: -12em;
+    width: 10em;
+    text-align: right;
+    margin: 0;
+}
+@media only screen and (max-width: 767px) {
+    h1, h2 {
+        padding: .5em;
+    }
+    section div.hgroup {
+        left: 0em;
+        width: 100%;
+        text-align: left;
+        margin: 0 0 1em 0;
+        padding: 0em;
+        border-top: 1px solid #aaa;
+        border-bottom: 1px solid #aaa;
+    }
+    section div.hfirst {
+        border-top: 0;
+    }
+}
+section div.hgroup h1, section div.hgroup h2 {
+    font-weight: bold;
+    color: #444;
+}
+
+/* We can style the links so they become highlighted when scrolled over */
+a {
+    border-bottom: 1px solid #ddd;
+    color: #222;
+    text-decoration: none;
+}
+a:visited:hover {
+    background: #f5f6d2;
+}
+a:hover {
+    background: #f9fda2;
+}
+a:active {
+    background: #f9fda2;
+}
+a.link {
+    border-bottom: none;
+    background: #f7f7f7;
+}
+
+/* The footer should be small */
+footer {
+    color: #777;
+    padding: 5px;
+    font-weight: normal;
+    font-size: .7em;
+    text-align: center;
+}
+
+section .callout {
+    margin: 1.5em 0 1.5em -1.5em;
+    padding: .75em .5em .75em 1em;
+    background: #fff;
+    border-left: .5em solid #d4af37;
+    text-align: center;
+}
+
+/* Pre's in callouts should not be centered */
+section .callout pre {
+    text-align: left;
+}
+
+/* We want the navigation bar to be above the top bar */
+nav {
+    margin: 0 5em 0 5em;
+    padding: 0;
+}
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: .9em;
+}
+nav ul li {
+    display: inline;
+    padding: 0 0.5em 0 0;
+}
+nav ul li a {
+    border: none;
+}
+nav ul li a.active {
+    color: #808080;
+}
+@media only screen and (max-width: 767px) {
+    nav {
+        margin: 0em;
+        padding: 1em;
+    }
+}
+
+/* Also, we want an inner nav bar to be below top bar */
+nav#inner {
+    margin: 0;
+    padding: 0.2em 0 0 1em;
+}
+
+/* We want targets to be highlighted */
+:target {
+    background: #f9fda2;
+}
+.hgroup:target {
+    background: #f8fbc1;
+}
+
+/* We want to make definition headers bold */
+dt {
+    font-weight: bold;
+}
+dd {
+    padding-bottom: .6em;
+}
+
+/* Set the line height to spread out text */
+.content {
+    line-height: 1.5;
+}
+
+/* Put the first element down slightly */
+.container section:first-of-type {
+    padding-top: 1em;
+}
+
+/* Make the profile image float right */
+.content img {
+    float: right;
+    margin: 0 1em 0 1.5em;
+}
+.clear {
+    clear: both;
+}
+.content1 p:first-child {
+    padding: 0;
+    margin-top: -1.5em;
+}
+.content2 p:first-child {
+    padding: 0;
+    margin-top: -1.25em;
+}
+
+/* Increase the spacing around list items */
+section li {
+    padding-bottom: .25em;
+}
+section li:last-child {
+    padding-bottom: 0em;
+}
+section br {
+    line-height: 1.5em;
+}

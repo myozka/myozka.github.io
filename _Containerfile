@@ -1,0 +1,23 @@
+FROM ubuntu:21.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get upgrade -y
+RUN apt-get install ruby-full build-essential zlib1g-dev -y
+
+ENV GEM_HOME /root/gems
+ENV PATH $GEM_HOME/bin:$PATH
+
+RUN gem install jekyll bundler
+RUN gem install jekyll-liquify
+
+COPY Gemfile /tmp/Gemfile
+WORKDIR /tmp
+RUN bundler install
+
+VOLUME /mnt
+WORKDIR /mnt
+
+EXPOSE 4000:4000
+
+ENTRYPOINT ["/root/gems/bin/jekyll"]

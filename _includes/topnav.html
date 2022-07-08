@@ -1,0 +1,10 @@
+            <nav>
+                <ul>
+                    {% for item in site.data.topnav %}
+                    {% if page.url == "/" and item.name != "home" %}
+                    {% else %}
+                    <li><a href="{{ item.link }}" {% if page.active == item.name or page.url == item.link %}class="active" {% endif %}>{{ item.name }}</a></li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            </nav>
